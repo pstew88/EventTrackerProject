@@ -46,7 +46,14 @@ class RaidTest {
 		
 		assertNotNull(raid);
 		assertEquals("ShirtlessGorefist", raid.getName());
-		
+		assertEquals(2020, raid.getTimeStarted().getYear());
+		assertEquals(2020, raid.getTimeEnded().getYear());
+		assertEquals(20, raid.getNumberOfAttendees());
+		assertEquals(4, raid.getNumberOfTanks());
+		assertEquals(3, raid.getNumberOfHealers());
+		assertEquals(13, raid.getNumberOfDps());
+		assertEquals(6, raid.getNumberBossesKilled());
+		assertEquals("Bracer of Brutality", raid.getBestItemDropped());
 	}
 
 }

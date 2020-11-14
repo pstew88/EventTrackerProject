@@ -1,3 +1,3 @@
 rootProject.name = 'RaidRecorder'
 
-include FLAT 'JPARaid'
+includeFlat 'JPARaid'
