@@ -8,6 +8,6 @@ import com.skilldistillery.raid.entities.Raid;
 
 public interface RaidRepository extends JpaRepository<Raid, Integer> {
 
-//	List<Raid> findPostByNameLikeOrLike(String name, String title);
+	List<Raid> findPostByNameLikeOrBestItemDroppedLike(String name, String item);
 	
 }

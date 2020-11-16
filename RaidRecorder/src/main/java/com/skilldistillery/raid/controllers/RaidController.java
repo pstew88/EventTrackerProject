@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.raid.entities.Raid;
-import com.skilldistillery.raid.services.RaidService;
+import com.skilldistillery.raid.services.RaidServiceImpl;
 
 @RequestMapping("api")
 @RestController
 public class RaidController {
 
 	@Autowired
-	private RaidService svc;
+	private RaidServiceImpl svc;
 	
 	@GetMapping("ping")
 	public String ping() {
