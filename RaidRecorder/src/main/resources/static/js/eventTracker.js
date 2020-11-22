@@ -49,6 +49,13 @@ function init() {
 		};
 		editRaid(raid);
 	});
+	document.getElementById('deleteRaid').addEventListener('click', function(event) {
+		event.preventDefault();
+		var raid = {
+			id: document.getElementById('raidId').value
+		}
+		deleteRaid(raid);
+	});
 };
 
 function showRaid(raid) {
@@ -152,18 +159,18 @@ function editRaid(raid) {
 	var userObjectJson = JSON.stringify(raid); // Convert JS object to JSON string
 
 	xhr.send(userObjectJson);
+	console.log(userObjectJson);
 };
 
 function deleteRaid(raid) {
 	var xhr = new XMLHttpRequest();
-	xhr.open('Delete', 'api/index/' + raidId);
-
+	xhr.open('DELETE', 'api/delete/' + raid.id);
+	console.log(raid.id);
 	xhr.setRequestHeader("Content-type", "application/json");
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			if (xhr.status == 200 || xhr.status == 201) { // Ok or Created
-				var data = JSON.parse(xhr.responseText);
 				console.log(raid);
 			} else {
 				console.log("POST request failed.");
@@ -172,9 +179,8 @@ function deleteRaid(raid) {
 		}
 	};
 
-	var userObjectJson = JSON.stringify(raid); // Convert JS object to JSON string
 
-	xhr.send(userObjectJson);
+	xhr.send(null);
 };
 
 

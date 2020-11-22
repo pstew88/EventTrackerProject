@@ -21,9 +21,9 @@
 	<br>
 	<form name='newRaidForm'>
 		<input type='text' name='raidName' placeholder='Name'> <input
-			type='text' name='startTime'
+			type='datetime-local' name='startTime'
 			placeholder='Start Time: 2020-10-10T18:00:20'> <input
-			type='text' name='endTime'
+			type='datetime-local' name='endTime'
 			placeholder='End Time: 2020-10-10T18:00:20'> <input
 			type='number' name='numberAttendees' placeholder='Total Attendees'>
 		<input type='number' name='numberTanks' placeholder='Tanks'> <input
@@ -38,9 +38,9 @@
 	<form id='editRaidForm'>
 		<input type='number' id='raidId' placeholder='Raid Id'> <input
 			type='text' id='raidName' placeholder='Name'> <input
-			type='text' id='startTime'
+			type='datetime-local' id='startTime'
 			placeholder='Start Time: 2020-10-10T18:00:20'> <input
-			type='text' id='endTime'
+			type='datetime-local' id='endTime'
 			placeholder='End Time: 2020-10-10T18:00:20'> <input
 			type='number' id='numberAttendees' placeholder='Total Attendees'>
 		<input type='number' id='numberTanks' placeholder='Tanks'> <input
@@ -48,7 +48,9 @@
 			type='number' id='numberDPS' placeholder='Dps'> <input
 			type='number' id='numberBosses' placeholder='Bosses Killed'>
 		<input type='text' id='bestItem' placeholder='Best Item Dropped'>
+		<br>
 		<button id='editRaid'>Edit Raid</button>
+		<button id='deleteRaid'>Delete Raid</button>
 	</form>
 <br><br>
 </body>
