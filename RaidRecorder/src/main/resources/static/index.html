@@ -6,6 +6,50 @@
 <script type="text/javascript" src="js/eventTracker.js"></script>
 </head>
 <body>
-<h1>Raid Tracker</h1>
+	<h1>Raid Tracker</h1>
+	<form name="raidForm">
+		<input type="number" name="raidId">
+		<button name="lookup">Get Raid by Id</button>
+	</form>
+	<br>
+	<br>
+	<form name="deleteRaidForm">
+		<input type="number" name="raidId">
+		<button name="lookup">Delete Raid by Id</button>
+	</form>
+	<br>
+	<br>
+	<form name='newRaidForm'>
+		<input type='text' name='raidName' placeholder='Name'> <input
+			type='text' name='startTime'
+			placeholder='Start Time: 2020-10-10T18:00:20'> <input
+			type='text' name='endTime'
+			placeholder='End Time: 2020-10-10T18:00:20'> <input
+			type='number' name='numberAttendees' placeholder='Total Attendees'>
+		<input type='number' name='numberTanks' placeholder='Tanks'> <input
+			type='number' name='numberHealers' placeholder='Healers'> <input
+			type='number' name='numberDPS' placeholder='Dps'> <input
+			type='number' name='numberBosses' placeholder='Bosses Killed'>
+		<input type='text' name='bestItem' placeholder='Best Item Dropped'>
+		<button name='submitRaid'>Submit New Raid</button>
+	</form>
+	<br>
+	<br>
+	<form id='editRaidForm'>
+		<input type='number' id='raidId' placeholder='Raid Id'> <input
+			type='text' id='raidName' placeholder='Name'> <input
+			type='text' id='startTime'
+			placeholder='Start Time: 2020-10-10T18:00:20'> <input
+			type='text' id='endTime'
+			placeholder='End Time: 2020-10-10T18:00:20'> <input
+			type='number' id='numberAttendees' placeholder='Total Attendees'>
+		<input type='number' id='numberTanks' placeholder='Tanks'> <input
+			type='number' id='numberHealers' placeholder='Healers'> <input
+			type='number' id='numberDPS' placeholder='Dps'> <input
+			type='number' id='numberBosses' placeholder='Bosses Killed'>
+		<input type='text' id='bestItem' placeholder='Best Item Dropped'>
+		<button id='editRaid'>Edit Raid</button>
+	</form>
+<br><br>
 </body>
 </html>
