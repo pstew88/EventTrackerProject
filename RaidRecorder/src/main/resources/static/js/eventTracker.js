@@ -31,6 +31,8 @@ function init() {
 
 		};
 		createRaid(raid);
+		window.location.reload();
+		
 	});
 	document.getElementById('editRaid').addEventListener('click', function(event) {
 		event.preventDefault();
@@ -48,6 +50,7 @@ function init() {
 			bestItemDropped: document.getElementById('bestItem').value
 		};
 		editRaid(raid);
+		window.location.reload();
 	});
 	document.getElementById('deleteRaid').addEventListener('click', function(event) {
 		event.preventDefault();
@@ -55,6 +58,7 @@ function init() {
 			id: document.getElementById('raidId').value
 		}
 		deleteRaid(raid);
+		window.location.reload();
 	});
 };
 
@@ -72,9 +76,6 @@ function showRaid(raid) {
 	form.children[8].setAttribute('value', raid.numberBossesKilled);
 	form.children[9].setAttribute('value', raid.bestItemDropped);
 };
-
-
-
 
 function listRaids() {
 	let xhr = new XMLHttpRequest();
@@ -136,6 +137,7 @@ function createRaid(raid) {
 	var userObjectJson = JSON.stringify(raid); // Convert JS object to JSON string
 
 	xhr.send(userObjectJson);
+	window.location.reload();
 };
 
 function editRaid(raid) {
@@ -159,7 +161,7 @@ function editRaid(raid) {
 	var userObjectJson = JSON.stringify(raid); // Convert JS object to JSON string
 
 	xhr.send(userObjectJson);
-	console.log(userObjectJson);
+	window.location.reload();
 };
 
 function deleteRaid(raid) {
@@ -181,6 +183,7 @@ function deleteRaid(raid) {
 
 
 	xhr.send(null);
+	window.location.reload();
 };
 
 
@@ -227,6 +230,7 @@ function displayRaid(raid) {
 			// raid.id 
 			showRaid(raid[i]);
 		});
+		
 
 		var td1 = document.createElement('td');
 		var td2 = document.createElement('td');

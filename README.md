@@ -11,6 +11,9 @@ For this project I created and wired a spring repository service to create a dat
 
 * Lastly users can remove a raid with /delete{id}
 
+### Overview Week 2
+Created Javascript to list out my raid database into a table and perform CRUD operations on it. Unfortnately I was unable to get any sort of aggregation going. I think there was a way to do it to target the specific value of some element and iterate over it to find the average value I was just never really able to get that working which is pretty frustrating.
+
 
 ### Technologies Used
 
@@ -19,3 +22,7 @@ Spring
 SpringBoot
 MySQL
 MySQLWorkBench
+Javascript
+VS Code
+DOM Manipulation
+XmlHTTPRequest
