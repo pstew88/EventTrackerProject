@@ -1,0 +1,72 @@
+<table *ngIf='!selected'>
+  <thead>
+    <tr>
+      <td>id</td>
+      <td>name</td>
+      <td>Time Started</td>
+      <td>Time Ended</td>
+      <td>Number of Attendees</td>
+      <td>Number of Tanks</td>
+      <td>Number of Healers</td>
+      <td>Number of Dps</td>
+      <td>Number of Bosses Killed</td>
+      <td>Best Item Dropped</td>
+      <td>Delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let raid of raids">
+      <td (click)='displayRaid(raid)'>{{raid.id}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.name}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.timeStarted}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.timeEnded}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.numberOfAttendees}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.numberOfTanks}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.numberOfHealers}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.numberOfDps}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.numberBossesKilled}}</td>
+      <td (click)='displayRaid(raid)'>{{raid.bestItemDropped}}</td>
+      <td><button (click)='deleteRaid(raid.id)'>X</button></td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf='selected && !editRaid'>
+      Id: {{selected.id}}<br>
+      Name: {{selected.name}}<br>
+      Time Started: {{selected.timeStarted}}<br>
+      Time Ended: {{selected.timeEnded}}<br>
+      Number of Attendees: {{selected.numberOfAttendees}}<br>
+      Number of Tanks: {{selected.numberOfTanks}}<br>
+      Number of Healers: {{selected.numberOfHealers}}<br>
+      Number of Dps: {{selected.numberOfDps}}<br>
+      Number of Bosses Killed: {{selected.numberBossesKilled}}<br>
+      Best Item Dropped: {{selected.bestItemDropped}}<br>
+  <button (click)='setEditRaid()'>Edit</button>
+  <button (click)='displayTable()'>Back</button>
+  </div>
+<br>
+<form *ngIf='!selected'>
+  <input [(ngModel)]="newRaid.name" type="string" name="id" placeholder="Name"> <br>
+  <input [(ngModel)]="newRaid.timeStarted" type="datetime-local" name="id" placeholder="Time Started">Time Started <br>
+  <input [(ngModel)]="newRaid.timeEnded" type="datetime-local" name="id" placeholder="Time Ended">Time Ended <br>
+  <input [(ngModel)]="newRaid.numberOfAttendees" type="number" name="id" placeholder="Number of Attendees"> <br>
+  <input [(ngModel)]="newRaid.numberOfTanks" type="number" name="id" placeholder="Number of Tanks"> <br>
+  <input [(ngModel)]="newRaid.numberOfHealers" type="number" name="id" placeholder="Number of Healers"> <br>
+  <input [(ngModel)]="newRaid.numberOfDps" type="number" name="id" placeholder="Number of Dps"> <br>
+  <input [(ngModel)]="newRaid.numberBossesKilled" type="number" name="id" placeholder="Number of Bosses Killed"> <br>
+  <input [(ngModel)]="newRaid.bestItemDropped" type="string" name="id" placeholder="Best Item Dropped"> <br>
+  <button (click)="addRaid(newRaid)">Add Raid</button>
+</form>
+<div *ngIf='editRaid'>
+  <input [(ngModel)]="editRaid.name" type="string" name="id"> <br>
+  <input [(ngModel)]="editRaid.timeStarted" type="datetime-local" name="id">Time Started <br>
+  <input [(ngModel)]="editRaid.timeEnded" type="datetime-local" name="id">Time Ended <br>
+  <input [(ngModel)]="editRaid.numberOfAttendees" type="number" name="id"> <br>
+  <input [(ngModel)]="editRaid.numberOfTanks" type="number" name="id"> <br>
+  <input [(ngModel)]="editRaid.numberOfHealers" type="number" name="id"> <br>
+  <input [(ngModel)]="editRaid.numberOfDps" type="number" name="id"> <br>
+  <input [(ngModel)]="editRaid.numberBossesKilled" type="number" name="id"> <br>
+  <input [(ngModel)]="editRaid.bestItemDropped" type="string" name="id"> <br>
+  <button (click)='updateRaid(editRaid)'>Save</button>
+  <button (click)='editRaid=null'>Cancel</button>
+</div>
