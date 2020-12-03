@@ -15,6 +15,11 @@ For this project I created and wired a spring repository service to create a dat
 Created Javascript to list out my raid database into a table and perform CRUD operations on it. Unfortnately I was unable to get any sort of aggregation going. I think there was a way to do it to target the specific value of some element and iterate over it to find the average value I was just never really able to get that working which is pretty frustrating.
 
 
+### Overview Week 3
+
+For this project I created an event tracker front end through angular. The user lands on the website and has all abilities to perform CRUD operations. Honestly this portion felt a bit easier than the Javascript last week. I was stressed out but once I got the Index function working the rest sort of just fell into place.
+
+
 ### Technologies Used
 
 Rest
@@ -26,3 +31,9 @@ Javascript
 VS Code
 DOM Manipulation
 XmlHTTPRequest
+Angular
+Components
+Services
+Directives
+Send / receive JSON
+Send asynchronous request to Java controller with http
