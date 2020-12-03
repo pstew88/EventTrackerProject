@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RaidService {
-  baseUrl = 'http://localhost:8085/';
+  baseUrl=environment.baseUrl ||""
   url = this.baseUrl + 'api/raids';
 
   index(): Observable<Raid[]> {
