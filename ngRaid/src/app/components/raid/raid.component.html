@@ -44,7 +44,10 @@
   <button (click)='setEditRaid()'>Edit</button>
   <button (click)='displayTable()'>Back</button>
   </div>
-<br>
+  <br>
+  <h4 *ngIf='!selected'>Average Number of Attendees: {{averageAttendees}}</h4>
+  <br>
+  <br>
 <form *ngIf='!selected'>
   <input [(ngModel)]="newRaid.name" type="string" name="id" placeholder="Name"> <br>
   <input [(ngModel)]="newRaid.timeStarted" type="datetime-local" name="id" placeholder="Time Started">Time Started <br>

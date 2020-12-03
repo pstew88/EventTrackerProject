@@ -10,5 +10,5 @@ public interface RaidService {
 	public Raid findRaidById(Integer id);
 	public Raid create(Raid newRaid);
 	public void delete(Integer id);
-	 public Raid update(Integer id, Raid upRaid);
+	public Raid update(Integer id, Raid upRaid);
 }

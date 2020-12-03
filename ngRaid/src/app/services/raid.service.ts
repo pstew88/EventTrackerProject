@@ -48,5 +48,6 @@ export class RaidService {
       })
     );
     }
+
   constructor(private http: HttpClient) { }
 }
