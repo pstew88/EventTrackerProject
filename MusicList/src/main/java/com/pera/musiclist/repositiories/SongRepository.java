@@ -1,13 +1,20 @@
-package com.skilldistillery.raid.repositories;
+package com.pera.musiclist.repositiories;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.skilldistillery.raid.entities.Raid;
+import com.pera.musiclist.entities.Song;
 
-public interface RaidRepository extends JpaRepository<Raid, Integer> {
+public interface SongRepository extends JpaRepository<Song, Integer> {
 
-	List<Raid> findPostByNameLikeOrBestItemDroppedLike(String name, String item);
-	
+	List<Song> findSongByReleaseDateLike(String releaseDate);
+	List<Song> findAllByOrderByTitleAsc();
+	List<Song> findAllByOrderByTitleDesc();
+	List<Song> findAllByOrderByArtistAsc();
+	List<Song> findAllByOrderByArtistDesc();
+	List<Song> findAllByOrderByReleaseDateAsc();
+	List<Song> findAllByOrderByReleaseDateDesc();
+	List<Song> findAllByOrderByPriceAsc();
+	List<Song> findAllByOrderByPriceDesc();
 }

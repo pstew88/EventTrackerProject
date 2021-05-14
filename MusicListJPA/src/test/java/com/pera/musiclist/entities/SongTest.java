@@ -1,4 +1,4 @@
-package com.skilldistillery.raid.entities;
+package com.pera.musiclist.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -14,15 +14,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class RaidTest {
+import com.pera.musiclist.entities.Song;
+
+class SongTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Raid raid;
+	private Song song;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf=Persistence.createEntityManagerFactory("RaidPU");
+		emf=Persistence.createEntityManagerFactory("MusicPU");
 	}
 
 	@AfterAll
@@ -33,7 +35,7 @@ class RaidTest {
 	@BeforeEach
 	void setUp() throws Exception {
 	em = emf.createEntityManager();
-	raid = em.find(Raid.class, 1);
+	song = em.find(Song.class, 1);
 	}
 
 	@AfterEach
@@ -44,16 +46,11 @@ class RaidTest {
 	@Test
 	void testEntity() {
 		
-		assertNotNull(raid);
-		assertEquals("ShirtlessGorefist", raid.getName());
-		assertEquals(2020, raid.getTimeStarted().getYear());
-		assertEquals(2020, raid.getTimeEnded().getYear());
-		assertEquals(20, raid.getNumberOfAttendees());
-		assertEquals(4, raid.getNumberOfTanks());
-		assertEquals(3, raid.getNumberOfHealers());
-		assertEquals(13, raid.getNumberOfDps());
-		assertEquals(6, raid.getNumberBossesKilled());
-		assertEquals("Bracer of Brutality", raid.getBestItemDropped());
+		assertNotNull(song);
+		assertEquals("Digital Love", song.getTitle());
+		assertEquals("Daft Punk", song.getArtist());
+		assertEquals(1.99, song.getPrice());
+		assertEquals(2001, song.getReleaseDate().getYear());
 	}
 
 }

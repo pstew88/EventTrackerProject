@@ -1,10 +1,10 @@
-package com.skilldistillery.raid;
+package com.pera.musiclist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RaidRecorderApplicationTests {
+class MusicListApplicationTests {
 
 	@Test
 	void contextLoads() {

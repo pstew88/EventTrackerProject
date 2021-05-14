@@ -1,4 +1,4 @@
-package com.skilldistillery.raid.services;
+package com.pera.musiclist.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,58 +6,90 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.raid.entities.Raid;
-import com.skilldistillery.raid.repositories.RaidRepository;
+import com.pera.musiclist.entities.Song;
+import com.pera.musiclist.repositiories.SongRepository;
 
 @Service
-public class RaidServiceImpl implements RaidService {
+public class SongServiceImpl implements SongService {
 
 	@Autowired
-	private RaidRepository raid;
+	private SongRepository song;
 
-	public List<Raid> getAllRaids() {
-		return raid.findAll();
+	public List<Song> getAllSongs() {
+		return song.findAll();
 	}
 
-	public Raid findRaidById(Integer id) {
-		Optional<Raid> managedRaid = raid.findById(id);
-		return managedRaid.get();
+	public Song findSongById(Integer id) {
+		Optional<Song> managedSong = song.findById(id);
+		return managedSong.get();
 	}
 
-	public Raid create(Raid newRaid) {
-		raid.saveAndFlush(newRaid);
-		return newRaid;
+	public Song create(Song newSong) {
+		song.saveAndFlush(newSong);
+		return newSong;
 	}
 
 	public void delete(Integer id) {
-		Optional<Raid> raidOpt = raid.findById(id);
-		Raid managedRaid = null;
-		if (raidOpt.isPresent()) {
-			managedRaid = raidOpt.get();
-			raid.deleteById(managedRaid.getId());
-			}
-	}
-
-	public Raid update(Integer id, Raid upRaid) {
-		Optional<Raid> raidOpt = raid.findById(id);
-		Raid managedRaid = null;
-		if (raidOpt.isPresent()) {
-			managedRaid = raidOpt.get();
-
-			managedRaid.setName(upRaid.getName());
-			managedRaid.setBestItemDropped(upRaid.getBestItemDropped());
-			managedRaid.setNumberBossesKilled(upRaid.getNumberBossesKilled());
-			managedRaid.setNumberOfAttendees(upRaid.getNumberOfAttendees());
-			managedRaid.setNumberOfDps(upRaid.getNumberOfDps());
-			managedRaid.setNumberOfHealers(upRaid.getNumberOfHealers());
-			managedRaid.setNumberOfTanks(upRaid.getNumberOfHealers());
-			managedRaid.setTimeStarted(upRaid.getTimeStarted());
-			managedRaid.setTimeEnded(upRaid.getTimeEnded());
+		Optional<Song> songOpt = song.findById(id);
+		Song managedSong = null;
+		if (songOpt.isPresent()) {
+			managedSong = songOpt.get();
+			song.deleteById(managedSong.getId());
 		}
-		raid.saveAndFlush(managedRaid);
-		return managedRaid;
-
 	}
 
-//	 List<Raid> search(String keyword);
+	public Song update(Integer id, Song upSong) {
+		Optional<Song> songOpt = song.findById(id);
+		Song managedSong = null;
+		if (songOpt.isPresent()) {
+			managedSong = songOpt.get();
+
+			managedSong.setTitle(upSong.getTitle());
+			managedSong.setArtist(upSong.getArtist());
+			managedSong.setPrice(upSong.getPrice());
+			managedSong.setReleaseDate(upSong.getReleaseDate());
+		}
+		song.saveAndFlush(managedSong);
+		return managedSong;
+	}
+
+	@Override
+	public List<Song> titleAsc() {
+		return song.findAllByOrderByTitleAsc();
+	}
+
+	@Override
+	public List<Song> titleDesc() {
+		return song.findAllByOrderByTitleDesc();
+	}
+
+	@Override
+	public List<Song> artistAsc() {
+		return song.findAllByOrderByArtistAsc();
+	}
+
+	@Override
+	public List<Song> artistDesc() {
+		return song.findAllByOrderByArtistDesc();
+	}
+
+	@Override
+	public List<Song> releaseDateAsc() {
+		return song.findAllByOrderByReleaseDateAsc();
+	}
+
+	@Override
+	public List<Song> releaseDateDesc() {
+		return song.findAllByOrderByReleaseDateDesc();
+	}
+
+	@Override
+	public List<Song> priceAsc() {
+		return song.findAllByOrderByPriceAsc();
+	}
+
+	@Override
+	public List<Song> priceDesc() {
+		return song.findAllByOrderByPriceDesc();
+	}
 }
