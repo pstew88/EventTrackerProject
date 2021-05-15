@@ -1,16 +1,16 @@
-import { RaidService } from './services/raid.service';
+import { SongService } from './services/song.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RaidComponent } from './components/raid/raid.component';
+import { SongComponent } from './components/raid/song.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RaidComponent
+    SongComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [RaidService],
+  providers: [SongService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
