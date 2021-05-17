@@ -1,6 +1,7 @@
 import { SongService } from '../../services/song.service';
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/models/song';
+import {Sort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-song',
@@ -12,9 +13,10 @@ export class SongComponent implements OnInit {
   selected: Song = null;
   newSong: Song = new Song();
   editSong: Song = null;
-  // averageAttendees: number;
+  sortedSongs: Song[];
 
-  constructor(private songService: SongService) {}
+  constructor(private songService: SongService) {
+  }
 
   ngOnInit(): void {
     this.loadSong();
@@ -30,17 +32,6 @@ export class SongComponent implements OnInit {
       }
     );
   }
-
-  // setAverageAttendees(songs: Song[]) {
-  //   let result = null;
-  //   let total = 0;
-  //   for (let i = 0; i < songs.length; i++) {
-  //     total = total + raids[i].numberOfAttendees;
-  //   }
-  //   result = total / raids.length;
-  //   this.averageAttendees = result;
-  //   console.log(result);
-  // }
 
   updateSong(raid: Song) {
     this.songService.update(raid).subscribe(
@@ -66,8 +57,6 @@ export class SongComponent implements OnInit {
       (data) => {
         this.songs = data;
         console.log('SongLoad: retrieve succeeded');
-        // this.setAverageAttendees(this.raids);
-        // console.log(this.averageAttendees);
       },
       (err) => {
         console.error('SongLoad: retrieve failed');
@@ -107,4 +96,26 @@ export class SongComponent implements OnInit {
       }
     );
   }
+  sortData(sort: Sort) {
+    const data = this.songs.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedSongs = data;
+      return;
+    }
+
+    this.sortedSongs = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'title': return compare(a.title, b.title, isAsc);
+        case 'releaseDate': return compare(a.releaseDate, b.releaseDate, isAsc);
+        case 'artist': return compare(a.artist, b.artist, isAsc);
+        case 'price': return compare(a.price, b.price, isAsc);
+        default: return 0;
+      }
+    });
+  }
+}
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

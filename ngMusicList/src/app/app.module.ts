@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { SongComponent } from './components/raid/song.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SortDirective } from './directive/sort.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SongComponent
+    SongComponent,
+    SortDirective
   ],
   imports: [
     BrowserModule,

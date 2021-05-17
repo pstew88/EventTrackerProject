@@ -1,12 +1,28 @@
+<!-- <table>
+  <tr>
+    <th a (click)="sortData('title')">Title</th>
+    <th mat-sort-header="artist">Artist</th>
+    <th mat-sort-header="releaseDate">Release Date</th>
+    <th mat-sort-header="price">Price</th>
+  </tr>
+
+  <tr *ngFor="let song of songs">
+    <td>{{song.title}}</td>
+    <td>{{song.artist}}</td>
+    <td>{{song.releaseDate}}</td>
+    <td>${{song.price}}</td>
+  </tr>
+</table>
+<br> -->
 <table *ngIf='!selected'>
   <thead>
     <tr>
 
-      <td>Title</td>
-      <td>Artist</td>
-      <td>Release Date</td>
-      <td>Price</td>
-      <td>Delete</td>
+      <th [appSort]="songs" data-order="desc" data-name="title" scope="col">Title</th>
+      <th [appSort]="songs" data-order="desc" data-name="artist" scope="col">Artist</th>
+      <th [appSort]="songs" data-order="desc" data-name="releaseDate" scope="col">Release Date</th>
+      <th [appSort]="songs" data-order="desc" data-name="price" scope="col">Price</th>
+      <th>Delete</th>
 
     </tr>
   </thead>
