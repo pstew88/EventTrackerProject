@@ -1,19 +1,8 @@
-<!-- <table>
-  <tr>
-    <th a (click)="sortData('title')">Title</th>
-    <th mat-sort-header="artist">Artist</th>
-    <th mat-sort-header="releaseDate">Release Date</th>
-    <th mat-sort-header="price">Price</th>
-  </tr>
 
-  <tr *ngFor="let song of songs">
-    <td>{{song.title}}</td>
-    <td>{{song.artist}}</td>
-    <td>{{song.releaseDate}}</td>
-    <td>${{song.price}}</td>
-  </tr>
-</table>
-<br> -->
+  <select [(ngModel)]="selectedYear">
+    <option *ngFor = "let year of getFilterYears()" >{{year}}</option>
+  </select>
+
 <table *ngIf='!selected'>
   <thead>
     <tr>
@@ -27,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let song of songs">
+    <tr *ngFor="let song of songs | filterByYear: selectedYear">
       <td (click)='displaySong(song)'>{{song.title}}</td>
       <td (click)='displaySong(song)'>{{song.artist}}</td>
       <td (click)='displaySong(song)'>{{song.releaseDate}}</td>
