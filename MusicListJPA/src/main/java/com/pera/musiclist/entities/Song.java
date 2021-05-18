@@ -1,5 +1,6 @@
 package com.pera.musiclist.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -7,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 public class Song {
@@ -18,7 +18,7 @@ public class Song {
 
 	private String title;
 	@Column(name="release_date")
-	private LocalDateTime releaseDate;
+	private LocalDate releaseDate;
 	private String artist;
 	private Double price;
 	public int getId() {
@@ -33,10 +33,11 @@ public class Song {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public LocalDateTime getReleaseDate() {
+	
+	public LocalDate getReleaseDate() {
 		return releaseDate;
 	}
-	public void setReleaseDate(LocalDateTime releaseDate) {
+	public void setReleaseDate(LocalDate releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 	public String getArtist() {
@@ -76,7 +77,7 @@ public class Song {
 		return "Song [id=" + id + ", title=" + title + ", releaseDate=" + releaseDate + ", artist=" + artist
 				+ ", price=" + price + "]";
 	}
-	public Song(int id, String title, LocalDateTime releaseDate, String artist, Double price) {
+	public Song(int id, String title, LocalDate releaseDate, String artist, Double price) {
 		super();
 		this.id = id;
 		this.title = title;
