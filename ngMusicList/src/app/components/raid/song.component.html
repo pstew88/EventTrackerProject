@@ -40,14 +40,14 @@
 <form *ngIf='!selected'>
   <input [(ngModel)]="newSong.title" type="string" name="id" placeholder="Title"> <br>
   <input [(ngModel)]="newSong.artist" type="string" name="id" placeholder="Artist"> <br>
-  <input [(ngModel)]="newSong.releaseDate" type="string" name="id" placeholder="Release Date"> <br>
+  <input [(ngModel)]="newSong.releaseDate" type="date" name="id" placeholder="Release Date">Date <br>
   <input [(ngModel)]="newSong.price" type="string" name="id" placeholder="Price"> <br>
   <button (click)="addSong(newSong)">Add Song</button>
 </form>
 <div *ngIf='editSong'>
   <input [(ngModel)]="editSong.title" type="string" name="id"> <br>
   <input [(ngModel)]="editSong.artist" type="string" name="id"> <br>
-  <input [(ngModel)]="editSong.releaseDate" type="datetime-local" name="id"> <br>
+  <input [(ngModel)]="editSong.releaseDate" type="date" name="id"> <br>
   <input [(ngModel)]="editSong.price" type="number" name="id"> <br>
   <button (click)='updateSong(editSong)'>Save</button>
   <button (click)='editSong=null'>Cancel</button>

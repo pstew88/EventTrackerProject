@@ -105,6 +105,7 @@ export class SongComponent implements OnInit {
       },
       (bad) => {
         console.error('SongListComponent: Error creating Song');
+        alert("Error adding song")
         console.error(bad);
       }
     );

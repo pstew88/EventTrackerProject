@@ -45,6 +45,10 @@ public class SongController {
 	// songs
 	@PostMapping("songs")
 	public Song create(@RequestBody Song newSong) {
+		//to create random failure
+		if (Math.random()<0.2) {
+			throw new RuntimeException("Random add failure");
+		}
 		return svc.create(newSong);
 	}
 
