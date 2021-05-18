@@ -1,7 +1,7 @@
 import { SongService } from '../../services/song.service';
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/models/song';
-import {Sort} from '@angular/material/sort';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-song',
