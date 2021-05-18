@@ -1,7 +1,7 @@
 import { SongService } from '../../services/song.service';
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/models/song';
-import { Sort } from '@angular/material/sort';
+// import {Sort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-song',
@@ -96,26 +96,26 @@ export class SongComponent implements OnInit {
       }
     );
   }
-  sortData(sort: Sort) {
-    const data = this.songs.slice();
-    if (!sort.active || sort.direction === '') {
-      this.sortedSongs = data;
-      return;
-    }
+//   sortData(sort: Sort) {
+//     const data = this.songs.slice();
+//     if (!sort.active || sort.direction === '') {
+//       this.sortedSongs = data;
+//       return;
+//     }
 
-    this.sortedSongs = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-      switch (sort.active) {
-        case 'title': return compare(a.title, b.title, isAsc);
-        case 'releaseDate': return compare(a.releaseDate, b.releaseDate, isAsc);
-        case 'artist': return compare(a.artist, b.artist, isAsc);
-        case 'price': return compare(a.price, b.price, isAsc);
-        default: return 0;
-      }
-    });
-  }
-}
+//     this.sortedSongs = data.sort((a, b) => {
+//       const isAsc = sort.direction === 'asc';
+//       switch (sort.active) {
+//         case 'title': return compare(a.title, b.title, isAsc);
+//         case 'releaseDate': return compare(a.releaseDate, b.releaseDate, isAsc);
+//         case 'artist': return compare(a.artist, b.artist, isAsc);
+//         case 'price': return compare(a.price, b.price, isAsc);
+//         default: return 0;
+//       }
+//     });
+//   }
+// }
 
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+// function compare(a: number | string, b: number | string, isAsc: boolean) {
+//   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
