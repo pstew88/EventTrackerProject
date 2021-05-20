@@ -13,19 +13,19 @@ Thank you for this opportunity to show you what I know.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-### functions
+### Functions
 
-# To sort by headers click once on the header you want to sort by, again for the inverse.
+- To sort by headers click once on the header you want to sort by, again for the inverse.
 
-# Click anywhere on the songs information to see a detailed list of the songs information
+- Click anywhere on the songs information to see a detailed list of the songs information
 
-# From there you can choose to edit the songs information and save it.
+- From there you can choose to edit the songs information and save it.
 
-# To delete a song simply click the X at the end of its row.
+- To delete a song simply click the X at the end of its row.
 
-# Songs are filtered by selecting the dropdown box and selecting the year it should sort to.
+- Songs are filtered by selecting the dropdown box and selecting the year it should sort to.
 
-# Finally to add a song just input its information and select add, an error will show if information was input improperly.
+- Finally to add a song just input its information and select add, an error will show if information was input improperly.
 
 
 ### Technologies Used
