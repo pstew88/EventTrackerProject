@@ -1,54 +1,120 @@
 
-  <select [(ngModel)]="selectedYear">
-    <option *ngFor = "let year of getFilterYears()" >{{year}}</option>
-  </select>
+<html>
 
-<table *ngIf='!selected'>
+<h3 align="center" class="header" *ngIf="!selected">Favorite Songs</h3>
+
+<!-- Song Table -->
+<table class="songTable" id=songTable
+  align="center"
+  *ngIf="!selected"
+>
   <thead>
     <tr>
-
-      <th [appSort]="songs" data-order="desc" data-name="title" scope="col">Title</th>
-      <th [appSort]="songs" data-order="desc" data-name="artist" scope="col">Artist</th>
-      <th [appSort]="songs" data-order="desc" data-name="releaseDate" scope="col">Release Date</th>
-      <th [appSort]="songs" data-order="desc" data-name="price" scope="col">Price</th>
+      <th [appSort]="songs" data-order="desc" data-name="title" scope="col">
+        Title
+      </th>
+      <th [appSort]="songs" data-order="desc" data-name="artist" scope="col">
+        Artist
+      </th>
+      <th
+        [appSort]="songs"
+        data-order="desc"
+        data-name="releaseDate"
+        scope="col"
+      >
+        Release Date
+      </th>
+      <th [appSort]="songs" data-order="desc" data-name="price" scope="col">
+        Price
+      </th>
       <th>Delete</th>
-
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let song of songs | filterByYear: selectedYear">
-      <td (click)='displaySong(song)'>{{song.title}}</td>
-      <td (click)='displaySong(song)'>{{song.artist}}</td>
-      <td (click)='displaySong(song)'>{{song.releaseDate}}</td>
-      <td (click)='displaySong(song)'>${{song.price}}</td>
-      <td><button (click)='deleteSong(song.id)'>X</button></td>
+      <td (click)="displaySong(song)">{{ song.title }}</td>
+      <td (click)="displaySong(song)">{{ song.artist }}</td>
+      <td (click)="displaySong(song)">{{ song.releaseDate }}</td>
+      <td (click)="displaySong(song)">${{ song.price }}</td>
+      <td><button (click)="deleteSong(song.id)">X</button></td>
     </tr>
   </tbody>
 </table>
-<div *ngIf='selected && !editSong'>
-      Id: {{selected.id}}<br>
-      Title: {{selected.title}}<br>
-      Artist: {{selected.artist}}<br>
-      Release Date: {{selected.releaseDate}}<br>
-      Price: {{selected.price}}<br>
 
-  <button (click)='setEditSong()'>Edit</button>
-  <button (click)='displayTable()'>Back</button>
+<!-- Edit Song Table -->
+<div>
+  <th *ngIf="selected && !editSong">Song Details</th>
+  <div *ngIf="selected && !editSong">
+    Id: {{ selected.id }}<br />
+    Title: {{ selected.title }}<br />
+    Artist: {{ selected.artist }}<br />
+    Release Date: {{ selected.releaseDate }}<br />
+    Price: ${{ selected.price }}<br />
+    <button (click)="setEditSong()">Edit</button>
+    <button (click)="displayTable()">Back</button>
   </div>
-  <br>
-  <br>
-<form *ngIf='!selected'>
-  <input [(ngModel)]="newSong.title" type="string" name="id" placeholder="Title"> <br>
-  <input [(ngModel)]="newSong.artist" type="string" name="id" placeholder="Artist"> <br>
-  <input [(ngModel)]="newSong.releaseDate" type="date" name="id" placeholder="Release Date">Date <br>
-  <input [(ngModel)]="newSong.price" type="string" name="id" placeholder="Price"> <br>
-  <button (click)="addSong(newSong)">Add Song</button>
-</form>
-<div *ngIf='editSong'>
-  <input [(ngModel)]="editSong.title" type="string" name="id"> <br>
-  <input [(ngModel)]="editSong.artist" type="string" name="id"> <br>
-  <input [(ngModel)]="editSong.releaseDate" type="date" name="id"> <br>
-  <input [(ngModel)]="editSong.price" type="number" name="id"> <br>
-  <button (click)='updateSong(editSong)'>Save</button>
-  <button (click)='editSong=null'>Cancel</button>
 </div>
+<br />
+
+<!-- Filter year released -->
+<table align="center">
+  <tr>
+    <td class="addEditDiv">
+      <div *ngIf="!selected">
+        <th>Filter songs by release year</th>
+        <select [(ngModel)]="selectedYear">
+          <option *ngFor="let year of getFilterYears()">{{ year }}</option>
+        </select>
+      </div>
+    </td>
+    <!-- Add Song -->
+
+    <td class="addEditDiv">
+      <div >
+        <th *ngIf="!selected">Add a new favorite song</th>
+        <form *ngIf="!selected">
+          <input
+            [(ngModel)]="newSong.title"
+            type="string"
+            name="id"
+            placeholder="Title"
+          />
+          <br />
+          <input
+            [(ngModel)]="newSong.artist"
+            type="string"
+            name="id"
+            placeholder="Artist"
+          />
+          <br />
+          <input
+            [(ngModel)]="newSong.releaseDate"
+            type="date"
+            name="id"
+            placeholder="Release Date"
+          />Date <br />
+          <input
+            [(ngModel)]="newSong.price"
+            type="string"
+            name="id"
+            placeholder="Price"
+          />
+          <br />
+          <button (click)="addSong(newSong)">Add Song</button>
+        </form>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<!-- Edit Song -->
+<div *ngIf="editSong">
+  <th>Edit Song</th>
+  <input [(ngModel)]="editSong.title" type="string" name="id" /> <br />
+  <input [(ngModel)]="editSong.artist" type="string" name="id" /> <br />
+  <input [(ngModel)]="editSong.releaseDate" type="date" name="id" /> <br />
+  <input [(ngModel)]="editSong.price" type="number" name="id" /> <br />
+  <button (click)="updateSong(editSong)">Save</button>
+  <button (click)="editSong = null">Cancel</button>
+</div>
+</html>

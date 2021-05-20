@@ -1,7 +1,7 @@
 import { SongService } from '../../services/song.service';
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/models/song';
-// import {Sort} from '@angular/material/sort';
+
 
 @Component({
   selector: 'app-song',
@@ -14,27 +14,26 @@ export class SongComponent implements OnInit {
   newSong: Song = new Song();
   editSong: Song = null;
   sortedSongs: Song[];
-  selectedYear: String = "all";
+  selectedYear: String = 'all';
 
-  getFilterYears(){
-  let result =["all"]
-  for (let i = 0; i < this.songs.length; i++) {
-    const element = this.songs[i].releaseDate.substring(0,4);
-    if(!result.includes(element)){
-      result.push(element);
+  //Filters song by release year
+  getFilterYears() {
+    let result = ['all'];
+    for (let i = 0; i < this.songs.length; i++) {
+      const element = this.songs[i].releaseDate.substring(0, 4);
+      if (!result.includes(element)) {
+        result.push(element);
+      }
     }
-  }
-  return result;
+    return result;
   }
 
-
-  constructor(private songService: SongService) {
-  }
+  constructor(private songService: SongService) {}
 
   ngOnInit(): void {
     this.loadSong();
   }
-
+  //Pulls all songs from the database
   index() {
     this.songService.index().subscribe(
       (good) => {
@@ -45,7 +44,7 @@ export class SongComponent implements OnInit {
       }
     );
   }
-
+  //Edits song
   updateSong(raid: Song) {
     this.songService.update(raid).subscribe(
       (good) => {
@@ -60,11 +59,11 @@ export class SongComponent implements OnInit {
     );
     this.editSong = null;
   }
-
+  //Sets song to be edited
   setEditSong() {
     this.editSong = Object.assign({}, this.selected);
   }
-
+  //Loads songs from database on init
   loadSong(): void {
     this.songService.index().subscribe(
       (data) => {
@@ -77,13 +76,14 @@ export class SongComponent implements OnInit {
       }
     );
   }
-
+  //Displays songs from database
   displaySong = function (song) {
     this.selected = song;
   };
   displayTable = function () {
     this.selected = null;
   };
+  //Delete Song
   deleteSong(id) {
     this.songService.destroy(id).subscribe(
       (good) => {
@@ -94,18 +94,19 @@ export class SongComponent implements OnInit {
       }
     );
   }
-
+  //Add Song
   addSong(song: Song): void {
     console.log(song);
     this.songService.create(song).subscribe(
       (good) => {
         this.loadSong();
         console.log('SongComponent: Song created:');
+        alert('New Song Added');
         console.log(good);
       },
       (bad) => {
         console.error('SongListComponent: Error creating Song');
-        alert("Error adding song")
+        alert('Error adding song');
         console.error(bad);
       }
     );

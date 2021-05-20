@@ -1,0 +1,21 @@
+
+
+html{
+  background-color: #EBEFE3;
+
+  font-family: "museo-sans",sans-serif;
+}
+
+.songTable{
+  background: #2889A6;;
+}
+
+.header{background: #EBEFE3;
+}
+tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}
+
+.addEditDiv{
+  background:#057C3E;
+}
