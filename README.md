@@ -1,23 +1,31 @@
-### EventTrackerProject
+### FavoriteMusicList
 
 ### Overview
-For this project I created and wired a spring repository service to create a database of completed raids for World of Warcraft. All CRUD operations can be completed in POSTMAN.
+This program pulls a list of favorited music from a MySQL database and allows the user to perform basic Create, Read, Update and Delete methods. I decided to run the project through a mySQL Database and built out the back end in Java with restful services on a SpringBoot server to try to show off a little more of what I can do. All testing performed on the back end through J-unit and on the front end through error response in the chrome console.
 
-* Look up all raids or a single raid with /index or /index{id} and GET
+The sort function was performed with a Directive so that it will resort and reorganize our table on each click event.
 
-* Users can create a new raid with a post on /create
+The other functions are created with Angular CRUD operations.
 
-* Users can update an item with /update{id} and a put to update the raids
+Thank you for this opportunity to show you what I know.
 
-* Lastly users can remove a raid with /delete{id}
+## Development server
 
-### Overview Week 2
-Created Javascript to list out my raid database into a table and perform CRUD operations on it. Unfortnately I was unable to get any sort of aggregation going. I think there was a way to do it to target the specific value of some element and iterate over it to find the average value I was just never really able to get that working which is pretty frustrating.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+### functions
 
-### Overview Week 3
+# To sort by headers click once on the header you want to sort by, again for the inverse.
 
-For this project I created an event tracker front end through angular. The user lands on the website and has all abilities to perform CRUD operations. Honestly this portion felt a bit easier than the Javascript last week. I was stressed out but once I got the Index function working the rest sort of just fell into place.
+# Click anywhere on the songs information to see a detailed list of the songs information
+
+# From there you can choose to edit the songs information and save it.
+
+# To delete a song simply click the X at the end of its row.
+
+# Songs are filtered by selecting the dropdown box and selecting the year it should sort to.
+
+# Finally to add a song just input its information and select add, an error will show if information was input improperly.
 
 
 ### Technologies Used

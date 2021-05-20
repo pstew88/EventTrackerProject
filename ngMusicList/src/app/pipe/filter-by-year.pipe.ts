@@ -11,9 +11,6 @@ export class FilterByYearPipe implements PipeTransform {
       if (year === 'all') {
         return songs;
       }
-      // tslint:disable-next-line:prefer-for-of
-
-        // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < songs.length; i++) {
           if (songs[i].releaseDate.startsWith(year)) {
             result.push(songs[i]);
@@ -22,4 +19,4 @@ export class FilterByYearPipe implements PipeTransform {
       return result;
     }
   }
-// pokeType : selectedType" (click)="selected = poke"
+

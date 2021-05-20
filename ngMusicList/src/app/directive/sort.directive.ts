@@ -2,6 +2,7 @@ import { Directive, Input, Renderer2, ElementRef, HostListener } from '@angular/
 
 import { Sort } from '../util/sort';
 
+//Tells the table how to rearrange its information based on sort.
 
 @Directive({
   selector: '[appSort]'

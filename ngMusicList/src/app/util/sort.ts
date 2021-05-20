@@ -7,7 +7,7 @@ export class Sort {
   })
 
   constructor() { }
-
+  //Sorts the data in my table.
   public startSort(property, order, type = "") {
       if (order === "desc") {
           this.sortOrder = -1;
